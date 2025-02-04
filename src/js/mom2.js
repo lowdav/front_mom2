@@ -7,8 +7,11 @@ let courses = [];
 window.onload = () => {
     loadCourses();
 
-    //Händelsehanterare för sök/filtrering
+    //Händelsehanterare för sök
     document.querySelector("#search").addEventListener("input", searchData);
+
+    //Händelsehanterare för filtrering
+    document.getElementById("code").addEventListener("click", filterData);
 }
 
 async function loadCourses() {
@@ -30,21 +33,13 @@ async function loadCourses() {
 }
 
 function printCourses(data) {
-//    const columnEl = document.querySelector("#column");
     const contentEl = document.querySelector("#content");
 
     // rensa innehåll innan utskrift 
     contentEl.innerHTML = "";
 
-    // VALDE ATT HÅRDKODA KOLUMNER I HTML ISTÄLLET
-//    const columns = Object.keys(data[0]); //googlat denna lösning
-//    console.table(columns); //test att datan finns som jag vill ha den
-    // columns.forEach(column => {
-    //     columnEl.innerHTML += `<th>${column}</th>`;
-    // });
-
     data.forEach(course => {
-        contentEl.innerHTML += `<tr><td>${course.code}</td><td>${course.coursename}</td><td>${course.progression}</td><td>${course.syllabus}</td></tr>`;
+        contentEl.innerHTML += `<tr><td>${course.code}</td><td>${course.coursename}</td><td>${course.progression}</td><td>${course.syllabus}</td></tr>`; 
     });
 }
 
@@ -60,8 +55,12 @@ function searchData() {
         course.coursename.toLowerCase().includes(searchPhrase.toLowerCase()) ||
         course.code.toLowerCase().includes(searchPhrase.toLowerCase()) 
     );
-
-    printCourses(resultData);
+        printCourses(resultData);  
 }
 
+function filterData() {
+    console.log("klick fungerar!");
+    let filteredData = courses.sort((a, b) => a.code > b.code ? 1 : -1);
+    printCourses(filteredData);
+}
 

@@ -5,8 +5,19 @@ input {
     font-size: 1.5rem;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+
 td {
-    border: 1px dotted red;
-    padding: 5px;
+    border-bottom: 1px dotted grey;
+    border-top: 1px dotted grey;
+    padding: 15px;
     text-align: center;
+}
+
+.noresult {
+    color: red;
+    font-size: 2rem;
 }
