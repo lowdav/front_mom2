@@ -1,0 +1,28 @@
+input {
+    padding: 20px;
+    margin: 20px 0;
+    width: clamp(200px, 70vw, 600px);
+    font-size: 1.5rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+td {
+    border-bottom: 1px dotted grey;
+    border-top: 1px dotted grey;
+    padding: 15px;
+}
+
+.noresult {
+    color: red;
+    font-size: 2rem;
+}

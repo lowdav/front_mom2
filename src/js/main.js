@@ -1,3 +1,5 @@
+"use strict";
+
 // Hämtar elementen från DOM
 const burgerMenu = document.getElementById('burger');
 const nav = document.getElementById('nav');
