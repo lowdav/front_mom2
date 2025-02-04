@@ -16,7 +16,6 @@ window.onload = () => {
     document.getElementById("code").addEventListener("click", () => filterData("code"));
     document.getElementById("name").addEventListener("click", () => filterData("coursename"));
     document.getElementById("progression").addEventListener("click", () => filterData("progression"));
-
 }
 
 async function loadCourses() {
@@ -43,8 +42,9 @@ function printCourses(data) {
     // rensa innehåll innan utskrift 
     contentEl.innerHTML = "";
 
+    //utskriften
     data.forEach(course => {
-        contentEl.innerHTML += `<tr><td>${course.code}</td><td>${course.coursename}</td><td>${course.progression}</td><td>${course.syllabus}</td></tr>`; 
+        contentEl.innerHTML += `<tr><td>${course.code}</td><td>${course.coursename}</td><td>${course.progression}</td></tr>`; 
     });
 }
 
