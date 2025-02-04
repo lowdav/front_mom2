@@ -57,7 +57,8 @@ function searchData() {
     //courses här kommer från den globala variablen som sattes tidigare, det är därför ingen 
     //data behöver skickas in i denna funktion.
     const resultData = courses.filter(course =>
-        course.coursename.toLowerCase().includes(searchPhrase.toLowerCase())
+        course.coursename.toLowerCase().includes(searchPhrase.toLowerCase()) ||
+        course.code.toLowerCase().includes(searchPhrase.toLowerCase()) 
     );
 
     printCourses(resultData);
