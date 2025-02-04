@@ -11,7 +11,12 @@ window.onload = () => {
     document.querySelector("#search").addEventListener("input", searchData);
 
     //Händelsehanterare för filtrering
-    document.getElementById("code").addEventListener("click", filterData);
+    // notering till mig själv: var tvungen att använda anonym funktion för att undvika att parameter skickas direkt. 
+
+    document.getElementById("code").addEventListener("click", () => filterData("code"));
+    document.getElementById("name").addEventListener("click", () => filterData("coursename"));
+    document.getElementById("progression").addEventListener("click", () => filterData("progression"));
+
 }
 
 async function loadCourses() {
@@ -22,7 +27,7 @@ async function loadCourses() {
         }
         
         courses = await response.json(); //Lagrar datan i den tidigare tomma arrayen. Då behöver man inte hämta datan över nätet igen om man inte vill
-        console.table(courses); // Test att innehåll har hämtats.
+        // console.table(courses); // Test att innehåll har hämtats.
         printCourses(courses); //Anropar funktionen och skickar med courses
 
     } catch(error) {
@@ -58,9 +63,14 @@ function searchData() {
         printCourses(resultData);  
 }
 
-function filterData() {
-    console.log("klick fungerar!");
-    let filteredData = courses.sort((a, b) => a.code > b.code ? 1 : -1);
+function filterData(column) {
+    // console.log("klick fungerar!"); Testar att eventlyssnaren fungerar
+
+
+    // [...] skapar kopia av ursprungliga arrayen så att datan finns kvar oförändrad, kul att testa 
+    let filteredData = [...courses].sort((a, b) => (a[column] > (b[column]) ? 1 : -1));
     printCourses(filteredData);
+
+    // console.table(courses); //kollar att den ursprungliga courses är oförändrad
 }
 
