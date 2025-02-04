@@ -1,0 +1,12 @@
+input {
+    padding: 20px;
+    margin: 20px 0;
+    width: 50vw;
+    font-size: 1.5rem;
+}
+
+td {
+    border: 1px dotted red;
+    padding: 5px;
+    text-align: center;
+}

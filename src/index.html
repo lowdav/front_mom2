@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moment 1</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/mom2.css">
 </head>
 <body>
     <header>
@@ -22,16 +22,30 @@
         <nav id="nav" class="hidden">
             <ul class="links">
                 <li><a href="index.html">Home</a></li>
-                <!-- <li><a href="pictures.html">Pictures</a></li>
-                <li><a href="process.html">Process</a></li> -->
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Boilerplate</h1><br>
+        <h1>Moment 2</h1>
+        <input type="text" id="search" placeholder="Skriv för att söka...">
+        <table>
+            <thead>
+                <tr>
+                  <th id="code">Kurskod</th>
+                  <th id="name">Namn</th>
+                  <th id="progression">Progression</th>  
+                </tr>
+            </thead>
+            <tbody id="content">
+            </tbody>
+        </table>
+
     </main>
     <footer>
         <p>DT211G VT25 Frontend-baserad webbutveckling. Dalo2101.</p>
     </footer>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/mom2.js"></script>
 </body>
 </html>
